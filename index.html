@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- Build -->
+    <title>index</title>
+    <script src="./番萌/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./番萌/path.css">
+</head>
+<body>
+    <div id="fixerr">
+        <div title="fMoeErrorReporter" style="margin:0 auto;width:100%;color:blue;text-align:center;font-size:15px;z-index:9999999;font-weight:blod;">
+            <noscript>
+                &lt;div style="padding:5px;background:#ffffa8;"&gt;您的浏览器不支持或者您禁止了Javascript脚本！部分功能将不可用！&lt;/div&gt;
+            </noscript>
+            <!--[if lt IE 9]>
+                <div style="padding:5px;background:#ffff88;">
+                您的浏览器版本过旧，请升级浏览器获得更好的体验，推荐使用 Chrome IE10+ 等最新浏览器！
+                </div>
+            <![endif]-->
+            <!--[if lt IE 8]>
+                <div style="padding:5px;background-color:red;color:#fff;">
+               番萌不支持IE7以下的浏览器，可能会出现严重的布局错位，脚本错误等问题！求您了，升级浏览器吧！
+                </div>
+            <![endif]-->
+          </div>
+    </div>
+    <div class="introbox" style="height: 663px;">
+        <div class="vcenterwrap">
+            <div class="intro">
+                <img src="./番萌/avatar.jpg" alt="NekoTora" class="avatar">
+                <h1>羊羊羊</h1>
+                <h3>二次元  /  技术宅  /  大三狗  /  世界观测中</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="shade" style="opacity: 0;"></div>
+    <div class="mainbox" style="display: block; margin-top: 663px;">
+        <div class="main">
+            <div class="fmoetitle">
+                <h2>「番萌」</h2>
+                <h3>Van!shment Th!s World</h3>
+            </div>
+            <div class="fmoebox">
+                <div class="line" style="padding-bottom:20px;">
+                    <a class="btn_fmoe" material="" href="index/">介绍</a>
+                    <a class="btn_fmoe" material="" href="message/message.php">留言</a>
+                    <a class="btn_fmoe" material="" href="photo/">相册</a>
+                </div>
+                <div class="line hitokoto" id="hitokoto">比自己,比梦想更重要的东西永远都存在着...</div>
+                <div class="line">
+                    <p class="tips"> Copyright (c)2015 Fanmoe Some Rights Reserved.</p>
+                    <p class="tips">备案 宇宙CQC201402333</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hjsbox">
+    </div>
+
+    <script>
+        //显示内容
+        $(".mainbox").css("display","block");
+        //页面滚动
+        $(window).scroll(function() {
+            var scrollh = $(document).height() - $(window).height();
+            var scrollp = $(window).scrollTop();
+            var pre = scrollp / scrollh;
+            //alert('scrollh:'+scrollh+'\n'+'scrollp:'+scrollp+'\n'+'pre:'+pre);
+            $(".shade").css("opacity",pre*0.8);
+        });
+        //自适应页面大小
+        function changeDivHeight(){
+            var clienth = document.documentElement.clientHeight; 
+            $(".introbox").height(clienth+"px");
+            $(".mainbox").css("margin-top",clienth+"px");
+        }
+        //自适应页面大小
+        window.onload=function(){changeDivHeight();}  
+        window.onresize=function(){changeDivHeight();}  
+        //初始化一言
+        setTimeout("getkoto()",1000);
+        //加载一言
+        var t;
+        function getkoto(){
+            var hjs = document.createElement('script');
+            hjs.setAttribute('id', 'hjs');
+            hjs.setAttribute('src', 'http://api.hitokoto.us/rand?encode=jsc&fun=echokoto');
+            document.getElementById("hjsbox").appendChild(hjs);
+            t=setTimeout("getkoto()",5000);
+        }
+        //输出一言
+        function echokoto(result){
+            var hc = eval(result);
+            //$("#hitokoto").fadeTo(300,0);
+            document.getElementById("hitokoto").innerHTML = hc.hitokoto;
+            //$("#hitokoto").fadeTo(300,0.75);
+        }
+        //弹出提示
+        function a_hm(){
+            alert("\n\n        绘梦 二次元原创绘画\n\n\n        Coming Soon...\n\n");
+        }
+        function a_dm(){
+            alert("\n\n        番萌动画 从未有过如此愉悦的动画管理体验\n\n\n        Coming Soon...\n\n");
+        }
+        </script>
+        <script>
+        /**
+         * Helper function, that allows to attach multiple events to selected objects
+         * @param {[object]}   el       [selected element or elements]
+         * @param {[type]}   events   [DOM object events like click or touch]
+         * @param {Function} callback [Callback method]
+         */
+        var addMulitListener = function(el, events, callback) {
+          // Split all events to array
+          var e = events.split(' ');
+          
+            // Loop trough all elements
+            Array.prototype.forEach.call(el, function(element, i) {
+              // Loop trought all events and add event listeners to each
+              Array.prototype.forEach.call(e, function(event, i) {
+                element.addEventListener(event, callback, false);
+              });  
+            });
+        }  ;
+
+        /**
+         * This function is adding ripple effect to elements
+         * @param  {[object]} e [DOM objects, that should apply ripple effect]
+         * @return {[null]}   [description]
+         */
+        addMulitListener(document.querySelectorAll('[material]'), 'click touchstart', function(e) { 
+            var ripple = this.querySelector('.ripple');
+            var eventType = e.type;
+            /**
+             * Ripple
+             */
+            if(ripple == null) {
+              // Create ripple
+              ripple = document.createElement('span'); 
+              ripple.classList.add('ripple');
+              
+              // Prepend ripple to element
+              this.insertBefore(ripple, this.firstChild);
+
+              // Set ripple size
+              if(!ripple.offsetHeight && !ripple.offsetWidth) {
+                var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
+                ripple.style.width = size + 'px';
+                ripple.style.height = size + 'px';
+              }
+
+            }
+
+            // Remove animation effect
+            ripple.classList.remove('animate');
+
+            // get click coordinates by event type
+            if(eventType == 'click') {
+              var x = e.pageX;
+              var y = e.pageY;
+            } else if(eventType == 'touchstart') {
+              var x = e.changedTouches[0].pageX;
+              var y = e.changedTouches[0].pageY;
+            }
+            x = x - this.offsetLeft - ripple.offsetWidth / 2;
+            y = y - this.offsetTop - ripple.offsetHeight / 2;
+
+            // set new ripple position by click or touch position
+            ripple.style.top = y + 'px';
+            ripple.style.left = x + 'px';
+            ripple.classList.add('animate');
+        });   
+        </script>
+        <script type="text/javascript" src="./番萌/stats" charset="UTF-8"></script>
+
+</body></html>

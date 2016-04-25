@@ -1,0 +1,25 @@
+.ng-enter,
+.ng-leave {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.ng-enter {
+    -webkit-animation: 2s fade-in;
+    -moz-animation: 2s fade-in;
+    -o-animation: 2s fade-in;
+    animation: 2s fade-in;
+    z-index: 100;
+}
+
+.ng-leave {
+    -webkit-animation: 2s fade-out;
+    -moz-animation: 2s fade-out;
+    -o-animation: 2s fade-out;
+    animation: 2s fade-out;
+    z-index: 99;
+}
+
