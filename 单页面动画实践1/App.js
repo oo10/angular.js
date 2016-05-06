@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", [&apos;ui.router&apos;]);
+var myApp = angular.module("myApp", ['ngAnimate','ui.router']);  //使用动画要加入ngAnimate模块，不然没效果
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
 
