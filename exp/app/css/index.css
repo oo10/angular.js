@@ -1,24 +1,46 @@
 .page {
     bottom:0;
-    padding-top:200px;
     position:absolute;
     text-align:center;
     top:0;
     width:100%;
-}
-.page h1 {
-    font-size:60px;
-}
-.page a {
-    margin-top:50px;
+    padding-top: 44px;
 }
 .hello {
     background:#00D0BC;
     color:#FFFFFF;
 }
+.index {
+}
+.page-bg{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
 .list{
     background:#E59400;
     color:#FFFFFF;
+}
+.btn-box{
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 16px;
+    color: #FFF6F6;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+.go-btn{
+    font-size: 18px;
+    width: 80%;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF5722;
 }
 @keyframes rotateFall {
     0% {
@@ -75,7 +97,7 @@
     z-index: 8888;
 }
 .ng-leave {
-    z-index: 9999;
+    z-index: 8889;
 }
 .hello.ng-enter {
     animation: scaleUp 0.5s both ease-in;
@@ -88,5 +110,11 @@
     animation:slideInRight 0.5s both ease-in;
 }
 .list.ng-leave {
+    animation:slideOutLeft 0.5s both ease-in;
+}
+.index.ng-enter {
+    animation: scaleUp 0.5s both ease-in;
+}
+.index.ng-leave {
     animation:slideOutLeft 0.5s both ease-in;
 }
