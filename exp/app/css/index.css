@@ -3,6 +3,7 @@ button,a,li,p,span {
     -webkit-user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
 }
 li{
     list-style: none;
@@ -16,8 +17,9 @@ li{
     padding-top: 44px;
 }
 .hello {
-    /*background:#00D0BC;*/
+    background:#efeff4;
     color:#000;
+    overflow-x: hidden;
 }
 .page-bg{
     height: 100%;
@@ -26,8 +28,9 @@ li{
     background-size: cover;
 }
 .list{
-    background:#E59400;
+    background:#efeff4;
     color:#FFFFFF;
+    overflow: hidden;
 }
 .btn-box{
     position: fixed;
@@ -40,6 +43,12 @@ li{
     letter-spacing: 1px;
     word-spacing: 1px;
 }
+.btn-box a,.btn-box a:link,.btn-box a:visited{
+    text-decoration: none;
+    color: #fff;
+
+}
+
 .go-btn{
     font-size: 18px;
     width: 80%;
@@ -90,7 +99,7 @@ li{
 }
 /*    hello.index    */
 .eating-card {
-    background: #00D0BC;
+    background-color: #4cd964;
     background-size: cover;
     background-position: center;
     height: 240px;
@@ -100,15 +109,28 @@ li{
     position: relative;
     margin: 1%;
     float: left;
+    box-sizing: border-box;
 }
 .eating-card-title {
+    opacity: .9;
+    background: #4cd964;
+    background: -moz-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #4cd964), color-stop(100%, #5ac8fa));
+    background: -webkit-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: -o-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: -ms-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cd964', endColorstr='#5ac8fa', GradientType=1 );
     color: #FFFFFF;
     position: absolute;
     bottom: 0;
     height: 60px;
-    background-color:rgba(173, 171, 163, 0.7);
+    /*background-color:rgba(173, 171, 163, 0.7);*/
     width: 100%;
     padding: 20px 10px;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    word-spacing: 1px;
 }
 .box {
     position: relative;
@@ -126,7 +148,7 @@ li{
 .del-box::before{
     content: "X";
     display: block;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Arial",sans-serif;
     color: #fff;
 }
@@ -135,13 +157,13 @@ li{
     height: 140px;
     position: fixed;
     top:50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scale(0);
     left: 0;
     right: 0;
     margin: auto;
     background: #f6f6f6;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.49);
-    display: none;
+    transition: .5s ease transform;
 }
 .dialog input{
     height: 40px;
@@ -163,7 +185,7 @@ li{
     transform: translateX(-50%);
     width: 60%;
 }
-.add-btn{
+.ok-btn{
     color: #fff;
     display: block;
     padding: 5px 10px;
@@ -182,7 +204,96 @@ li{
     background-color: #FF5722;
     float: right;
 }
-@keyframes rotateFall {
+.add-btn {
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.add-btn span{
+    font-size: 60px;
+    text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.34);
+}
+/**result**/
+.asi-card {
+    background-size: cover;
+    background-position: center;
+    height: 260px;
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.49);
+    position: relative;
+    margin: 0.5%;
+    float: left;
+    box-sizing: border-box;
+    outline: none;
+}
+.asi-card-title {
+    background: #4cd964;
+    background: -moz-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #4cd964), color-stop(100%, #5ac8fa));
+    background: -webkit-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: -o-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: -ms-linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    background: linear-gradient(45deg, #4cd964 0%, #5ac8fa 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cd964', endColorstr='#5ac8fa', GradientType=1 );
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 0px;
+    height: 60px;
+    background-color: rgba(61, 61, 62, 0.52);
+    width: 100%;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+.re-asi-btn {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 15px;
+    background-color: #4AA6FF;
+    color: #fff;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+}
+@-webkit-keyframes rotateFall {
+    0% {
+        -webkit-transform: rotateZ(0deg);
+    }
+    20% {
+        -webkit-transform: rotateZ(10deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+    40% {
+        -webkit-transform: rotateZ(17deg);
+    }
+    60% {
+        -webkit-transform: rotateZ(16deg);
+    }
+    100% {
+        -webkit-transform: translateX(-100%) rotateZ(17deg) scale(.6);
+    }
+}
+@-ms-keyframes rotateFall {
+    0% {
+        -ms-transform: rotateZ(0deg);
+    }
+    20% {
+        -ms-transform: rotateZ(10deg);
+        animation-timing-function: ease-out;
+    }
+    40% {
+        -ms-transform: rotateZ(17deg);
+    }
+    60% {
+        -ms-transform: rotateZ(16deg);
+    }
+    100% {
+        -ms-transform: translateX(-100%) rotateZ(17deg) scale(.6);
+    }
+}
+@-o-keyframes rotateFall {
     0% {
         transform: rotateZ(0deg);
     }
@@ -200,19 +311,75 @@ li{
         transform: translateX(-100%) rotateZ(17deg) scale(.6);
     }
 }
-@keyframes slideOutLeft {
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform : translateX(-100%);
+    }
+}
+@-ms-keyframes slideOutLeft {
+    to {
+        -ms-transform: translateX(-100%);
+    }
+}
+@-o-keyframes slideOutLeft {
     to {
         transform: translateX(-100%);
     }
 }
 
-@keyframes scaleUp {
+@-webkit-keyframes scaleUp {
     from {
         opacity: 0.3;
         -webkit-transform: scale(0.8);
     }
 }
-@keyframes slideInRight {
+@-ms-keyframes scaleUp {
+    from {
+        opacity: 0.3;
+        -ms-transform: scale(0.8);
+    }
+}
+@-o-keyframes scaleUp {
+    from {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+@-webkit-keyframes scaleDown {
+    to {
+        opacity: 0.3;
+        -webkit-transform: scale(0.8);
+    }
+}
+@-ms-keyframes scaleDown {
+    to {
+        opacity: 0.3;
+        -ms-transform: scale(0.8);
+    }
+}
+@-o-keyframes scaleDown {
+    to {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform :translateX(100%);
+    }
+    to {
+        -webkit-transform : translateX(0);
+    }
+}
+@-ms-keyframes slideInRight {
+    from {
+        -ms-transform:translateX(100%);
+    }
+    to {
+        -ms-transform: translateX(0);
+    }
+}
+@-o-keyframes slideInRight {
     from {
         transform:translateX(100%);
     }
@@ -220,7 +387,23 @@ li{
         transform: translateX(0);
     }
 }
-@keyframes slideInUp {
+@-webkit-keyframes slideInUp {
+    from {
+        -webkit-transform :translateY(100%);
+    }
+    to {
+        -webkit-transform : translateY(0);
+    }
+}
+@-ms-keyframes slideInUp {
+    from {
+        -ms-transform:translateY(100%);
+    }
+    to {
+        -ms-transform: translateY(0);
+    }
+}
+@-o-keyframes slideInUp {
     from {
         transform:translateY(100%);
     }
@@ -235,21 +418,27 @@ li{
     z-index: 8889;
 }
 .hello.ng-enter {
-    animation: scaleUp 0.5s both ease-in;
+    animation: scaleUp 0.8s both ease-in;
+    -webkit-animation: scaleUp 0.8s both ease-in;
 }
 .hello.ng-leave {
     transform-origin: 0% 0%;
-    animation: rotateFall 1s both ease-in;
+    animation: slideOutLeft .8s both ease-in;
+    -webkit-animation: slideOutLeft .8s both ease-in;
 }
 .list.ng-enter {
-    animation:slideInRight 0.5s both ease-in;
+    animation:scaleUp 0.8s both ease-in;
+    -webkit-animation:scaleUp 0.8s both ease-in;
 }
 .list.ng-leave {
-    animation:slideOutLeft 0.5s both ease-in;
+    animation:slideOutLeft 0.8s both ease-in;
+    -webkit-animation:slideOutLeft 0.8s both ease-in;
 }
 .index.ng-enter {
-    animation: scaleUp 0.5s both ease-in;
+    animation: scaleUp 0.8s both ease-in;
+    -webkit-animation: scaleUp 0.8s both ease-in;
 }
 .index.ng-leave {
-    animation:slideOutLeft 0.5s both ease-in;
+    animation:slideOutLeft 0.8s both ease-in;
+    -webkit-animation:slideOutLeft 0.8s both ease-in;
 }

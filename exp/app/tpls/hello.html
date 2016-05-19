@@ -1,17 +1,19 @@
-<!--<input ng-model="title">-->
 <li class="eating-card" ng-repeat="box in boxs"  ng-style="myObj"  ng-controller="mymymy">
     <div class="eating-card-title"><span>{{box.title}}</span></div>
     <a class="del-box" ng-click="del($index)"></a>
 </li>
-<a ng-click="alert()">增加一个</a>
+<a class="add-btn" ng-click="alert()"><span>+</span></a>
 <!--<p>{{greeting.text}},angular</p>-->
 <!--<p><a href="#/list">下一页</a></p>-->
 
+<p>{{msg}}</p>
 
-<div class="dialog {{showDialog}}">
-    <input placeholder="增加选择" ng-model="addtitle">{{addtitle}}
+<div class="dialog" style="transform:{{showDialog}}">
+    <!--<input placeholder="输入选项" ng-model="addtitle" value="{{addtitle}}">-->
+    <input placeholder="输入选项" ng-model="addtitle" value="{{localTitle}}">
     <div class="cofilm-btn">
-        <a class="add-btn" ng-click="add()">确定</a>
+        <a class="ok-btn" ng-click="add()">确定</a>
         <a class="cancel-btn" ng-click="cancel()">取消</a>
     </div>
 </div>
+
