@@ -1,15 +1,48 @@
-var bookStoreCtrls = angular.module('bookStoreCtrls', []);
+var appCtrls = angular.module('appCtrls', []);
 
-bookStoreCtrls.controller('HelloCtrl', ['$scope',
+appCtrls.controller('HelloCtrl', ['$scope',
     function($scope) {
         $scope.greeting = {
             text: 'Hello'
         };
+        $scope.boxs = [{
+            title: '一食堂',
+        },{
+            title: '二食堂',
+        },{
+            title: '3食堂',
+        },{
+            title: '4食堂',
+        },{
+            title: '5食堂',
+        }];
+
         $scope.pageClass="hello";
+        $scope.del = function(idx){
+            alert(idx);
+            $scope.boxs.splice(idx,1);
+        };
+        //$scope.alert = function () {
+        //    $modal.open({
+        //        templateUrl: 'tpls/index.html',
+        //        scope: $scope,
+        //        controller: function ($scope) {
+        //            $scope.ok = function (index) {
+        //                $scope.itemsList.items.splice(index, 1)
+        //                $scope.$dismiss();
+        //            }
+        //            $scope.cancel = function () {
+        //                $scope.$dismiss()
+        //            }
+        //        }
+        //    })
+        //}
+
     }
+
 ]);
 
-bookStoreCtrls.controller('BookListCtrl', ['$scope',
+appCtrls.controller('BookListCtrl', ['$scope',
     function($scope) {
         $scope.books = [{
             title: "《Ext江湖》",
@@ -25,13 +58,13 @@ bookStoreCtrls.controller('BookListCtrl', ['$scope',
     }
 ]);
 
-bookStoreCtrls.controller('IndexCtrl', ['$scope',
+appCtrls.controller('IndexCtrl', ['$scope',
     function($scope) {
         $scope.pageClass="index";
     }
 ]);
 
-bookStoreCtrls.controller("mymymy", function($scope,$location) {
+appCtrls.controller("mymymy", function($scope,$location) {
     var bgUrl = [
         'http://wanteat.coding.io/img/test1.jpg',
         'http://wanteat.coding.io/img/test3.jpg',

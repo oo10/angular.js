@@ -1,2 +1,7 @@
-<p>{{greeting.text}},Angular</p>
+<!--<input ng-model="title">-->
+<li class="eating-card" ng-repeat="box in boxs"  ng-click="del($index)">
+    <div class="eating-card-title"><span>{{box.title}}</span></div>
+    <a ng-show="$index!=1" ng-click="del($index)">删除</a>
+</li>
+<p>{{greeting.text}},angular</p>
 <p><a href="#/list">下一页</a></p>
