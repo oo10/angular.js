@@ -6,22 +6,27 @@ appCtrls.controller('HelloCtrl', ['$scope',
             text: 'Hello'
         };
         $scope.boxs = [{
-            title: '一食堂',
+            title: '一食堂'
         },{
-            title: '二食堂',
+            title: '二食堂'
         },{
-            title: '3食堂',
-        },{
-            title: '4食堂',
-        },{
-            title: '5食堂',
+            title: '3食堂'
         }];
 
         $scope.pageClass="hello";
+
+        $scope.alert = function(){
+            $scope.showDialog = "inactive";
+        };
+
         $scope.del = function(idx){
-            alert(idx);
             $scope.boxs.splice(idx,1);
         };
+
+        $scope.add = function() {
+            $scope.boxs.push({"title" : $scope.addtitle, "Label": "Item " +     $scope.boxs.length})
+        };
+
         //$scope.alert = function () {
         //    $modal.open({
         //        templateUrl: 'tpls/index.html',
