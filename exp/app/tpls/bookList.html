@@ -1,6 +1,8 @@
 <div class="asi-box">
     <div class="asi-card" ng-style="myObj" ng-controller="mymymy">
-        <div class="asi-card-title" style="background-color:rgba(173, 171, 163, 0.7)" ng-controller="HelloCtrl"><span>{{boxTitleRodon}}</span></div>
+        <div class="asi-card-title" style="background-color:rgba(173, 171, 163, 0.7)" ng-controller="HelloCtrl">
+            <span ng-bind="boxTitleRodon">{{titleRodon}}</span>
+        </div>
     </div>
     <div class="re-asi-btn">
         <span ng-click="refresh()" >不对不对，再选一次！</span>
