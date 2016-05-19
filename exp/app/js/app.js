@@ -13,6 +13,15 @@ bookStoreApp.config(function($routeProvider) {
         templateUrl: 'tpls/index.html',
         controller: 'IndexCtrl'
     }).otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
     })
 });
+
+bookStoreApp.run(['$rootScope', '$location', function($rootScope, $location) {
+    $rootScope.$on('$routeChangeSuccess', function(newV) {
+        $rootScope.path = $location.path();
+        console.log($location.path());
+        console.log($rootScope.path);
+        console.log($rootScope.path=='/');
+    });
+}]);

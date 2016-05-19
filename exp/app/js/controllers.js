@@ -31,26 +31,28 @@ bookStoreCtrls.controller('IndexCtrl', ['$scope',
     }
 ]);
 
-bookStoreCtrls.controller("mymymy", function($scope) {
+bookStoreCtrls.controller("mymymy", function($scope,$location) {
     var bgUrl = [
         'http://wanteat.coding.io/img/test1.jpg',
         'http://wanteat.coding.io/img/test3.jpg',
         'http://wanteat.coding.io/img/test4.jpg',
         'http://wanteat.coding.io/img/test5.jpg',
-        'http://wanteat.coding.io/img/test6.jpg',
         'http://wanteat.coding.io/img/test7.jpg',
         'http://wanteat.coding.io/img/test8.jpg',
-        'http://wanteat.coding.io/img/test9.jpg',
         'http://wanteat.coding.io/img/test10.jpg'
     ];
     $scope.myObj = {
-        "height": "100%",
-        "width": "100%",
         "background-image": "url('" + bgUrl[Math.floor((Math.random()*bgUrl.length))] + "')",
-        "background-size": "cover"
     };
+    $scope.goBtn = function () {
+        //console.log(window.location.href);
+        $location.path('/hello');
+    }
 
 });
+
+
+
 /**
  * 这里接着往下写，如果控制器的数量非常多，需要分给多个开发者，可以借助于grunt来合并代码
  */
