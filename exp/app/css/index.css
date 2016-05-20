@@ -246,6 +246,9 @@ li{
     padding: 20px 10px;
     box-sizing: border-box;
 }
+.asi-card-title span {
+    letter-spacing: 1px;
+}
 .re-asi-btn {
     position: fixed;
     bottom: 0px;
