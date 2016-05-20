@@ -77,25 +77,25 @@ li{
 .top-btn::before{
     content: "";
     display: block;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     position: fixed;
-    top: 12px;
+    top: 6px;
     background-size: cover;
 }
 .back-btn{
     left: 0;
 }
 .back-btn::before{
-    left: 12px;
-    background-image: url("../imgs/back.jpg");
+    left: 6px;
+    background-image: url("../imgs/back.png");
 }
 .sure-btn{
     right: 0;
 }
 .sure-btn::before{
-    right: 12px;
-    background-image: url("../imgs/sure.jpg");
+    right: 6px;
+    background-image: url("../imgs/sure.png");
 }
 /*    hello.index    */
 .eating-card {

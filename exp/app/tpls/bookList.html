@@ -1,7 +1,7 @@
 <div class="asi-box">
     <div class="asi-card" ng-style="changeBg">
         <div class="asi-card-title" style="background-color:rgba(173, 171, 163, 0.7)">
-            <span ng-bind="boxTitleRodon">{{titleRodon}}</span>
+            <span ng-bind-html="boxTitleRodon | to_trusted">{{titleRodon}}</span>
         </div>
     </div>
     <div class="re-asi-btn">
