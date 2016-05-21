@@ -21,7 +21,6 @@ if(localData != localStorage['names']){
         localStorage['names'] = localData;
     }
 }
-//console.log(localStorage['names']==undefined);
 
 appCtrls.controller('ListCtrl', ['$scope',
     function ($scope) {
@@ -31,6 +30,12 @@ appCtrls.controller('ListCtrl', ['$scope',
                 localStorage['names'] = localData;
             }
         }
+        var str = document.URL.split("#/");
+        if(str[1]=="list"){
+            document.getElementById('sure-btn').style.display =  'block';
+            document.getElementById('back-btn').style.display =  'block';
+        }
+
 
         $scope.boxs = JSON.parse(localStorage['names']);
         var names = $scope.boxs;
@@ -55,7 +60,6 @@ appCtrls.controller('ListCtrl', ['$scope',
 
         };
         var o= ($scope.boxs.length);
-        console.log("o"+o);
         $scope.add = function () {
             if(o==bgUrl.length){
                 o=0;
@@ -78,8 +82,13 @@ appCtrls.controller('ListCtrl', ['$scope',
 appCtrls.controller('IndexCtrl', ['$scope','$location',
     function ($scope,$location) {
         $scope.pageClass = "index";
+        var str = document.URL.split("#/");
+        if(str[1]=="") {
+            document.getElementById('sure-btn').style.display =  'none';
+            document.getElementById('back-btn').style.display =  'none';
+        }
+
         $scope.goBtn = function () {
-            //console.log(window.location.href);
             $location.path('/list');
         };
         $scope.changeBg = {
@@ -91,6 +100,12 @@ appCtrls.controller('IndexCtrl', ['$scope','$location',
 appCtrls.controller('ResultCtrl', ['$scope',
     function ($scope) {
         $scope.pageClass = "result";
+        var str = document.URL.split("#/");
+        if(str[1]=="result"){
+            document.getElementById('sure-btn').style.display =  'none';
+            document.getElementById('back-btn').style.display =  'block';
+        }
+
         var resultBoxs = JSON.parse(localStorage['names']);
         if(resultBoxs.length==0){
             $scope.boxTitleRodon = "至少添加一个选项，你可以返回添加";

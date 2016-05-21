@@ -60,27 +60,17 @@
 
 <body id="body">
     <header>
-        <div class="inactive" id="topBtn">
-            <a class="back-btn top-btn" href="javascript:history.go(-1)">返回</a>
+        <div id="topBtn">
+            <a class="back-btn top-btn" id="back-btn" href="javascript:history.go(-1)">返回</a>
             <!--<a class="back-btn top-btn" ng-class="{ture:'inactive',false:'active'}[$rootScope.path!=='/']">返回</a>-->
-            <a class="sure-btn top-btn" href="#/result">确认</a>
+            <a class="sure-btn top-btn" id="sure-btn" href="#/result">确认</a>
         </div>
         <h1 class="title" id="title">吃啥呢?</h1>
     </header>
     <div class="page {{pageClass}}" ng-view>
     </div>
     <script>
-        function menuBtn(){
-            var str = document.URL.split("#/");
-//        console.log(str);
-            if(str[1]==""){
-                document.getElementById('topBtn').style.display =  'none';
-            }
-            else {
-                document.getElementById('topBtn').style.display =  'block';
-            }
-        }
-        setInterval(menuBtn,1500);
+
     </script>
     <span style="visibility:hidden"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259228806'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259228806%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></span>
 </body>
