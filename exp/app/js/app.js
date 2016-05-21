@@ -3,12 +3,12 @@ var app = angular.module('app', [
 ]);
 
 app.config(function($routeProvider) {
-    $routeProvider.when('/hello', {
+    $routeProvider.when('/list', {
         templateUrl: 'tpls/hello.html',
-        controller: 'HelloCtrl'
-    }).when('/list', {
-        templateUrl: 'tpls/bookList.html',
         controller: 'ListCtrl'
+    }).when('/result', {
+        templateUrl: 'tpls/bookList.html',
+        controller: 'ResultCtrl'
     }).when('/', {
         templateUrl: 'tpls/index.html',
         controller: 'IndexCtrl'

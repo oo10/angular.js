@@ -12,7 +12,8 @@ var bgUrl = [
     './imgs/picture9.jpg'
 ];
 var localData = JSON.stringify([{
-    title: '默认选项:海鲜大餐'
+    title: '默认选项:海鲜大餐',
+    bgUrl: bgUrl[Math.floor((Math.random() * bgUrl.length))]
 }]);
 
 if(localData != localStorage['names']){
@@ -20,12 +21,11 @@ if(localData != localStorage['names']){
         localStorage['names'] = localData;
     }
 }
-console.log(localStorage['names']==undefined);
+//console.log(localStorage['names']==undefined);
 
-appCtrls.controller('HelloCtrl', ['$scope',
+appCtrls.controller('ListCtrl', ['$scope',
     function ($scope) {
-        $scope.pageClass = "hello";    //添加page class
-
+        $scope.pageClass = "list";    //添加page class
         if(localData != localStorage['names']){
             if(localStorage['names']==undefined){
                 localStorage['names'] = localData;
@@ -36,7 +36,6 @@ appCtrls.controller('HelloCtrl', ['$scope',
         var names = $scope.boxs;
         localStorage['names'] = JSON.stringify(names);
         $scope.boxs = JSON.parse(localStorage['names']);
-
 
         //从JSON文件中读数据
         //$http.get('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json').success(function(data){
@@ -53,13 +52,20 @@ appCtrls.controller('HelloCtrl', ['$scope',
         $scope.del = function (idx) {
             $scope.boxs.splice(idx, 1);
             localStorage['names'] = JSON.stringify($scope.boxs);
-        };
 
+        };
+        var o= ($scope.boxs.length);
+        console.log("o"+o);
         $scope.add = function () {
-            $scope.boxs.push({"title": $scope.addtitle||'Empty'});
+            if(o==bgUrl.length){
+                o=0;
+            }
+            console.log("o  "+o);
+            $scope.boxs.push({"title": $scope.addtitle||'Empty','bgUrl': bgUrl[o]});
             localStorage['names'] = JSON.stringify($scope.boxs);
             $scope.showDialog = "translateY(-50%) scale(0)";
-            console.log("boxs" + $scope.boxs);
+            //console.log("boxs" + $scope.boxs);
+            o++;
         };
 
         $scope.cancel = function () {
@@ -69,17 +75,23 @@ appCtrls.controller('HelloCtrl', ['$scope',
 ]);
 
 
-appCtrls.controller('IndexCtrl', ['$scope',
-    function ($scope) {
+appCtrls.controller('IndexCtrl', ['$scope','$location',
+    function ($scope,$location) {
         $scope.pageClass = "index";
+        $scope.goBtn = function () {
+            //console.log(window.location.href);
+            $location.path('/list');
+        };
+        $scope.changeBg = {
+            "background-image": "url('" + bgUrl[Math.floor((Math.random() * bgUrl.length))] + "')"
+        };
     }
 ]);
 
-appCtrls.controller('ListCtrl', ['$scope',
+appCtrls.controller('ResultCtrl', ['$scope',
     function ($scope) {
-        $scope.pageClass = "list";
+        $scope.pageClass = "result";
         var resultBoxs = JSON.parse(localStorage['names']);
-        var randomNumber = Math.floor((Math.random() * (resultBoxs.length)));
         if(resultBoxs.length==0){
             $scope.boxTitleRodon = "至少添加一个选项，你可以返回添加";
             $scope.changeBg = {
@@ -95,37 +107,27 @@ appCtrls.controller('ListCtrl', ['$scope',
         else if(resultBoxs.length==1&&(resultBoxs[0].title!="默认选项:海鲜大餐")){
             $scope.boxTitleRodon = "就一个选项只能是<span style='text-shadow:5px 5px 5px #2C9B80; padding:0 4px'>"+resultBoxs[0].title+"</span>了";
             $scope.changeBg = {
-                "background-image": "url('" + bgUrl[Math.floor((Math.random() * bgUrl.length))] + "')"
+                "background-image": "url('" + resultBoxs[0].bgUrl + "')"
             };
         }
         else
         {
+            var randomNumber = Math.floor((Math.random() * (resultBoxs.length)));
             $scope.boxTitleRodon = "<span style='text-shadow:5px 5px 5px #2C9B80; padding:0 4px'>"+resultBoxs[randomNumber].title+"</span>";   //result
             $scope.changeBg = {
-                "background-image": "url('" + bgUrl[Math.floor((Math.random() * bgUrl.length))] + "')"
+                "background-image": "url('" + resultBoxs[randomNumber].bgUrl + "')"
             };
             $scope.refresh = function () {
-                console.log(resultBoxs);
+                //console.log(resultBoxs);
                 var randomNumber2 = Math.floor((Math.random() * (resultBoxs.length)));
-                $scope.boxTitleRodon = resultBoxs[randomNumber2].title;   //result
+                $scope.boxTitleRodon = "<span style='text-shadow:5px 5px 5px #2C9B80; padding:0 4px'>"+resultBoxs[randomNumber2].title+"</span>";   //result
                 $scope.changeBg = {
-                    "background-image": "url('" + bgUrl[Math.floor((Math.random() * bgUrl.length))] + "')"
+                    "background-image": "url('" + resultBoxs[randomNumber2].bgUrl + "')"
                 };
             }
         }
     }
 ]);
-
-appCtrls.controller("mymymy", function ($scope, $location) {
-
-    $scope.myObj = {
-        "background-image": "url('" + bgUrl[Math.floor((Math.random() * bgUrl.length))] + "')",
-    };
-    $scope.goBtn = function () {
-        //console.log(window.location.href);
-        $location.path('/hello');
-    }
-});
 
 
 /**

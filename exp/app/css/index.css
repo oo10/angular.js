@@ -8,7 +8,9 @@ button,a,li,p,span {
 li{
     list-style: none;
 }
+
 .page {
+    background:#efeff4;
     bottom:0;
     position:absolute;
     text-align:center;
@@ -16,10 +18,8 @@ li{
     width:100%;
     padding-top: 44px;
 }
-.hello {
-    background:#efeff4;
-    color:#000;
-    overflow-x: hidden;
+.index {
+	overflow: hidden;
 }
 .page-bg{
     height: 100%;
@@ -27,8 +27,11 @@ li{
     background-position: center;
     background-size: cover;
 }
-.list{
-    background:#efeff4;
+.list {
+    color:#000;
+    overflow: hidden;
+}
+.result{
     color:#FFFFFF;
     overflow: hidden;
 }
@@ -97,7 +100,7 @@ li{
     right: 6px;
     background-image: url("../imgs/sure.png");
 }
-/*    hello.index    */
+/*    list.index    */
 .eating-card {
     background-color: #4cd964;
     background-size: cover;
@@ -131,6 +134,14 @@ li{
     box-sizing: border-box;
     letter-spacing: 1px;
     word-spacing: 1px;
+
+}
+.eating-card-title span{
+    display: block;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;/* 省略标记(...)*/
 }
 .box {
     position: relative;
@@ -246,8 +257,13 @@ li{
     padding: 20px 10px;
     box-sizing: border-box;
 }
-.asi-card-title span {
+.asi-card-title>span {
     letter-spacing: 1px;
+    display: block;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;/* 省略标记(...)*/
 }
 .re-asi-btn {
     position: fixed;
@@ -420,20 +436,20 @@ li{
 .ng-leave {
     z-index: 8889;
 }
-.hello.ng-enter {
+.list.ng-enter {
     animation: scaleUp 0.8s both ease-in;
     -webkit-animation: scaleUp 0.8s both ease-in;
 }
-.hello.ng-leave {
+.list.ng-leave {
     transform-origin: 0% 0%;
     animation: slideOutLeft .8s both ease-in;
     -webkit-animation: slideOutLeft .8s both ease-in;
 }
-.list.ng-enter {
+.result.ng-enter {
     animation:scaleUp 0.8s both ease-in;
     -webkit-animation:scaleUp 0.8s both ease-in;
 }
-.list.ng-leave {
+.result.ng-leave {
     animation:slideOutLeft 0.8s both ease-in;
     -webkit-animation:slideOutLeft 0.8s both ease-in;
 }

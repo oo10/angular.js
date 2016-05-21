@@ -1,6 +1,6 @@
-<li class="eating-card" ng-repeat="box in boxs track by $index" ng-click="del($index)" ng-style="myObj" ng-controller="mymymy">
-    <div class="eating-card-title"><span>{{box.title}}</span></div>
-    <a class="del-box" ng-click="del($index)"></a>
+<li class="eating-card" ng-repeat="box in boxs track by $index"  style="background-image: url('{{box.bgUrl}}')" ng-click="del($index)" >
+    <div class="eating-card-title""><span>{{box.title}}</span></div>
+    <a class="del-box"></a>
 </li>
 <a class="add-btn" ng-click="alert()"><span>+</span></a>
 <!--<p>{{greeting.text}},angular</p>-->

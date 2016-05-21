@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">    <title>BookStore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>吃啥呢？-选择困难症福利</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="framework/1.3.0.14/angular.js"></script>
     <script src="framework/1.3.0.14/angular-route.js"></script>
@@ -23,9 +24,7 @@
             padding: 0;
         }
         body{
-            background:#efeff4;
-            background-position: center;
-            background-size: cover;
+            background: #efeff4;
         }
         header{
             width: 100%;
@@ -48,6 +47,7 @@
             position: absolute;
             left: 40px;
             right: 40px;
+            letter-spacing: 1px;
         }
         .inactive {
             display: none;
@@ -63,24 +63,26 @@
         <div class="inactive" id="topBtn">
             <a class="back-btn top-btn" href="javascript:history.go(-1)">返回</a>
             <!--<a class="back-btn top-btn" ng-class="{ture:'inactive',false:'active'}[$rootScope.path!=='/']">返回</a>-->
-            <a class="sure-btn top-btn" href="#/list">确认</a>
+            <a class="sure-btn top-btn" href="#/result">确认</a>
         </div>
         <h1 class="title" id="title">吃啥呢?</h1>
     </header>
     <div class="page {{pageClass}}" ng-view>
     </div>
+    <script>
+        function menuBtn(){
+            var str = document.URL.split("#/");
+//        console.log(str);
+            if(str[1]==""){
+                document.getElementById('topBtn').style.display =  'none';
+            }
+            else {
+                document.getElementById('topBtn').style.display =  'block';
+            }
+        }
+        setInterval(menuBtn,1500);
+    </script>
+    <span style="visibility:hidden"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259228806'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259228806%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></span>
 </body>
 </html>
-<script>
-    function menuBtn(){
-        var str = document.URL.split("#/");
-//        console.log(str);
-        if(str[1]==""){
-            document.getElementById('topBtn').style.display =  'none';
-        }
-        else {
-            document.getElementById('topBtn').style.display =  'block';
-        }
-    }
-    setInterval(menuBtn,1500);
-</script>
+
