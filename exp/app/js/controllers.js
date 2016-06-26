@@ -70,6 +70,7 @@ appCtrls.controller('ListCtrl', ['$scope',
             $scope.showDialog = "translateY(-50%) scale(0)";
             //console.log("boxs" + $scope.boxs);
             o++;
+            $scope.addtitle=''; //将输入的内容置空
         };
 
         $scope.cancel = function () {
