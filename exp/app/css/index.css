@@ -1,4 +1,25 @@
-﻿button,a,li,p,span {
+﻿
+::-webkit-scrollbar{
+		width:8px; height:8px;
+	}
+
+::-webkit-scrollbar-track:vertical{
+		background:#FF0000;
+	}
+
+::-webkit-scrollbar-track-piece{  /* 外 */
+		background:#F5F5F5
+	}
+
+::-webkit-scrollbar-thumb:vertical{   /* 内 */
+		background:#CCCCCC; border-radius:10px;
+	}
+
+::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
+		background:#666666;
+	}
+
+button,a,li,p,span {
     touch-action: manipulation;
     -webkit-user-select: none;
     -webkit-user-drag: none;

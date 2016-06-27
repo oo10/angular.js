@@ -1,4 +1,4 @@
-<li class="eating-card" ng-repeat="box in boxs track by $index"  style="background-image: url('{{box.bgUrl}}')" ng-click="del($index)" >
+﻿<li class="eating-card" ng-repeat="box in boxs track by $index"  style="background-image: url('{{box.bgUrl}}')" ng-click="del($index)" >
     <div class="eating-card-title""><span>{{box.title}}</span></div>
     <a class="del-box"></a>
 </li>
@@ -7,7 +7,7 @@
 <!--<p><a href="#/list">下一页</a></p>-->
 
 <p>{{msg}}</p>
-<div style="height: 100%;width: 100%;" ng-click="cancel()"></div>
+<div style="height:calc(100% - 44px);width: 100%;" ng-click="cancel()"></div>
 <div class="dialog" style="transform:{{showDialog}}">
     <!--<input placeholder="输入选项" ng-model="addtitle" value="{{addtitle}}">-->
     <input placeholder="输入选项" ng-model="addtitle">
